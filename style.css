@@ -1,0 +1,24 @@
+.logo{
+    max-height: 100px;
+    width: 100px;
+}
+.imagen-carrusel{
+    height: 350px;
+}
+.imagen-footer{
+    height: 50px;
+    width: 50px;
+}
+.card {
+    width: 18rem;
+}
+.folmulario{
+    border: 1px solid black;
+}
+.folmulario-titulo{
+    border: 1px solid black;
+    background-color: grey;
+}
+.container{
+    margin: 25px;
+}
