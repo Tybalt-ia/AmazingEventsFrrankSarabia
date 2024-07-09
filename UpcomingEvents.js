@@ -194,3 +194,34 @@ const data = {
       },
     ],
   };
+
+  data.currentDate //"2023-01-01"
+
+ data.events //[0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+
+ for (let i = 0; i < events.length; i++) {
+
+  if (eventos[i].date > data.currentDate) {
+    
+function pintarTarjetas(eventos) {
+   
+      let contenedor = document.getElementById("contenedorTarjetas")
+  
+      let tarjeta = document.createElement('div')
+      tarjeta.className = "card"
+      tarjeta.innerHTML = `
+             <img src=${eventos[i].image} class="card-img-top" alt="food_fair">
+             <div class="card-body d-flex justify-content-between flex-wrap">
+                   <h5 class="card-title">${eventos[i].name}</h5>
+                    <p class="card-text">${eventos[i].description}</p>
+                    <p> price${eventos[i].price}</p>
+                    <a href="details.html" class="btn btn-primary">Details</a>
+              </div>`
+      contenedor.appendChild(tarjeta)
+  }
+
+  }
+
+}
+
+pintarTarjetas(data.events)
