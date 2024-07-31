@@ -194,114 +194,20 @@ const data = {
       },
     ],
   };
-
-  let past = []
-
-
-
-  for (let i = 0; i < data.events.length; i++) {
-    if (data.events[i].date < data.currentDate) {
-       past.push(data.events[i])
-    }
-  }
   
-  function pintarTarjetas(events) {
-    let contenedor = document.getElementById("contenedorTarjetas")
-    contenedor.innerHTML =""
-    for (let i = 0; i < events.length; i++) { 
-      let tarjeta = document.createElement('div')
-      tarjeta.className = "card m-1"
-      tarjeta.innerHTML = `
-            <img src="${events[i].image}" class="card-img-top">
-           <div class="card-body">
-             <h5 class="card-title text-center">${events[i].name}</h5>
-             <p class="card-text text-center">${events[i].description}</p>
-            <div class="container-fluid d-flex justify-content-center">
-              <p class="card-text text-center m-2">Price: ${events[i].price} </p>
-              <a href="./details.html?id=${events[i]._id}" class="btn btn-primary">Details</a>
-            </div>     
+  let _id = new URLSearchParams (window.location.search).get ("id")
+  let evento = data.events.find (e => e. _id == _id)
+  
+  
+  document.getElementById ("card").innerHTML = `
+            <div class="card col-4" >
+            <img src="${evento.image}" class="imagenDetalles card-img-bottom">
+            <div class="card-body">
+           <h5  id="name" class="card-title d-flex justify-content-center"> name: ${evento.name} </h5>
+           
+                  <p class="card-text"> date: ${evento.date} </p>
+                  <p class="card-text"> description: ${evento.description} </p>
+                  <p class="card-text"> capacity: ${evento.capacity}  </p>
+                  <p class="card-text"> capacity or estimate: ${evento.assistance? evento.assistance:evento.estimate} </p>
+                  <p class="card-text"> price : ${evento.price} </p>     
         `
-      contenedor.appendChild(tarjeta)
-    }
-  }
-  
-
-  let checkbox = []
-
-for (let i = 0; i < past.length; i++) {
-  if (!checkbox.includes(past[i].category)) {
-    checkbox.push(past[i].category)
-  }
-
-}
-
-function pintarCheckbox(events) {
-  for (let i = 0; i < events.length; i++) {
-    let contenedor = document.getElementById("checkbox")
-    let check = document.createElement('div')
-    check.className = "form-check m-1 d-flex align-items-center"
-    check.innerHTML = `
-      <input class="form-check-input" type="checkbox" value="${events[i]}" id="${events[i]}">
-      <label class="form-check-label" for="flexCheck1">
-         ${events[i]}
-      </label>
-    `
-    document.getElementById("checkbox").appendChild(check)
-    contenedor.appendChild(check)
-  }
-}
-
-
-function filtroTexto(arregloEventos) {
-  let texto = document.getElementById("inputTexto").value.toLowerCase()
-  let arregloFiltrado = arregloEventos
-  if (texto != null || texto != undefined) {
-    arregloFiltrado = arregloEventos.filter(eventos => eventos.name.toLowerCase().includes(texto)
-      || eventos.description.toLowerCase().includes(texto))
-  }
-  return (arregloFiltrado)
-
-}
-
-function filtroCheck(arregloEventos) {
-  let tarjetaChequeada = [...document.querySelectorAll('input[type = "checkbox"]:checked')]
-  tarjetaChequeada = tarjetaChequeada.map(e => e.value)
-  let arregloFiltrado = arregloEventos
-  if (tarjetaChequeada.length != 0) {
-    arregloFiltrado = arregloEventos.filter(eventos => tarjetaChequeada.includes(eventos.category))
-  }
-
-  return arregloFiltrado
-}
-
-window.addEventListener("load", function (event) {
-
-  document.getElementById("inputTexto").addEventListener('keyup', e => {
-    let arregloTextoFiltrado = filtroTexto(past)
-    let arregloFiltradochecks = filtroCheck(arregloTextoFiltrado)
-
-
-    if (arregloFiltradochecks.length != 0) {
-      pintarTarjetas(arregloFiltradochecks)
-    } else {
-      document.getElementById("contenedorTarjetas").innerHTML = " We don't have any events available that meet the search conditions!"
-    }
-  })
-
-  document.getElementById("checkbox").addEventListener('change', e => {
-    console.log(1)
-    let arregloFiltradochecks = filtroCheck(past)
-    console.log(arregloFiltradochecks)
-    let arregloTextoFiltrado = filtroTexto(arregloFiltradochecks)
-    console.log(arregloTextoFiltrado)
-
-    if (arregloTextoFiltrado.length != 0) {
-      console.log('pintado')
-      pintarTarjetas(arregloTextoFiltrado)
-    } else {
-      document.getElementById("contenedorTarjetas").innerHTML = " We don't have any events available that meet the search conditions!"
-    }
-  })
-  pintarTarjetas(past);
-  pintarCheckbox(checkbox)
-});

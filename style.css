@@ -22,3 +22,10 @@
 .container{
     margin: 25px;
 }
+.card-img-top{
+    height: 160px;
+}
+.imagenDetalles{
+    height: 190px;
+    width: 339px;
+}
