@@ -94,94 +94,46 @@
             </button>
           </div>
         </div>
+
+
+        
+
+
         <div class="container ">
           <div class="row">
-            <div class="folmulario-titulo col-12">
+            <div class="table-bordered border-primary col-12">
               Events Statistics
             </div>
-            <div class="folmulario col-4">
-              Events with highest % of assistance
-            </div>
-            <div class="folmulario col-4">
-              Events with lowest % of assistance
-            </div>
-            <div class="folmulario col-4">
-              Events with larger capacity
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              .
-            </div>
-            <div class=" folmulario-titulo col-12">
+            <table class="table table-bordered border-primary">
+              <thead>
+                <tr>
+                  <th scope="col">Events with highest % of assistance</th>
+                  <th scope="col">Events with lowest % of assistance</th>
+                  <th scope="col">Events with larger capacity</th>              
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mayorAsistencia</td>
+                  <td>menor asistencia</td>
+                  <td>mayor capacidad</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <div class=" col-12">
               Upcoming events statistics by category
+            </div>           
+            <div id="tablaUpcoming"></div>
+
+
+
+            <div class="col-12">
+              Past events statistics by category 
             </div>
-            <div class="folmulario col-4">
-              Categories
-            </div>
-            <div class="folmulario col-4">
-              Revenues
-            </div>
-            <div class="folmulario col-4">
-              Percentage of assitance
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              .
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              .
-            </div>
-            <div class=" folmulario-titulo col-12">
-              Past events statistics by category
-            </div>
-            <div class="folmulario col-4">
-              Categories
-            </div>
-            <div class="folmulario col-4">
-              Revenues
-            </div>
-            <div class="folmulario col-4">
-              Percentage of assitance
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              .
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              
-            </div>
-            <div class="folmulario col-4">
-              .
-            </div>
-            
-           
-              
-            
-          </div>
+            <div id="tablasPast"></div>
+
         </div>
       </main>
 
@@ -189,14 +141,17 @@
         <img src="./facebook.png" class="img-thumbnail imagen-footer m-4" alt="facebook">
         <img src="./instagram.png" class="img-thumbnail imagen-footer m-4" alt="instagram">
         <img src="./whatsapp.png" class="img-thumbnail imagen-footer m-4" alt="whatsapp">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="./modules/funciones.js" type="module"></script>
+        <script src="./Stats.js" type="module"></script>
       </footer>
     
-      </main>
+
     
     
     
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
         
     
 </body>
