@@ -99,7 +99,7 @@ export async function consultarUrl(url) {
  
   export function calcularValoresx (eventos){
     let categoriasData = {};
-    console.log(categoriasData);
+    
     
     
 
